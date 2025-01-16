@@ -18,6 +18,15 @@ public class HelloController {
     private TextField searchBar;
 
     @FXML
+    private TextField inputEmail;
+
+    @FXML
+    private TextField inputPassword;
+
+    @FXML
+    private TextField inputUsername;
+
+    @FXML
     void search(ActionEvent event) throws SQLException {
         String input = searchBar.getText();
         String sql = "SELECT id, title, author FROM Books WHERE title LIKE ? OR author LIKE ?";
@@ -45,11 +54,17 @@ public class HelloController {
         ps.setString(1, input);
         ps.setString(2, input);
         int rows = ps.executeUpdate();
+        String sql = "UPDATE Books"
         display.setText("Borrowed: " + input + " rows");
     }
 
     @FXML
     void returnBook(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateAccount(ActionEvent event) {
 
     }
 
